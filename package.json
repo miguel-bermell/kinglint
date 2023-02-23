@@ -1,0 +1,32 @@
+{
+  "name": "kinglint",
+  "version": "1.0.3",
+  "type": "module",
+  "description": "Load all needed configuration for your project",
+  "main": "index.js",
+  "bin": {
+    "kinglint": "./src/index.js"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix"
+  },
+  "dependencies": {
+    "@types/node": "^18.11.9",
+    "commander": "^9.4.1",
+    "ora": "^6.1.2"
+  },
+  "author": "Miguel Bermell",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.20.5",
+    "@babel/eslint-parser": "^7.19.1",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "prettier": "^2.8.0"
+  }
+}
