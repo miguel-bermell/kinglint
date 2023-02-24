@@ -5,7 +5,7 @@ const fileOptions = {
 	},
 	husky: {
 		flag: "-HK, --husky",
-		description: "Husky & lint-staged Config",
+		description: "Husky, commit-msg & lint-staged Config",
 	},
 };
 

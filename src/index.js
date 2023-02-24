@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 import { exec } from "child_process";
 import { program } from "commander";
-import { readFileSync, writeFile } from "fs";
+import { writeFile } from "fs";
 import ora from "ora";
 
+import pgkjson from "../package.json";
 import { commitMsg } from "./files/commitMsg.js";
 import { editorConfig } from "./files/editorConfig.js";
 import { eslintJs } from "./files/javascript.js";
@@ -14,7 +15,7 @@ import { huskyScript } from "./scripts/husky.js";
 import { loadOptions } from "./utils/programOptions.js";
 import { writeFiles, writePkgJson } from "./utils/writeFiles.js";
 
-const { version } = JSON.parse(readFileSync("./package.json", "utf8"));
+const { version } = JSON.parse(pgkjson);
 program.version(version, "-v, --version", "current version");
 loadOptions(program);
 
