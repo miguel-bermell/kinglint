@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 import { exec } from "child_process";
 import { program } from "commander";
-import { writeFile } from "fs";
+import { readFileSync, writeFile } from "fs";
 import ora from "ora";
+import path, { join } from "path";
 
-import { version } from "../package.json";
 import { commitMsg } from "./files/commitMsg.js";
 import { editorConfig } from "./files/editorConfig.js";
 import { eslintJs } from "./files/javascript.js";
@@ -14,6 +14,10 @@ import { javascript } from "./packages/javascript.js";
 import { huskyScript } from "./scripts/husky.js";
 import { loadOptions } from "./utils/programOptions.js";
 import { writeFiles, writePkgJson } from "./utils/writeFiles.js";
+
+const kinglintDir = path.dirname(path.dirname(new URL(import.meta.url).pathname));
+const kinglintPkgJson = readFileSync(join(kinglintDir, "package.json"), "utf8");
+const { version } = JSON.parse(kinglintPkgJson);
 
 program.version(version, "-v, --version", "current version");
 loadOptions(program);
