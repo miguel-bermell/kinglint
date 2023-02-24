@@ -1,8 +1,29 @@
 {
   "name": "kinglint",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "type": "module",
   "description": "Load all needed configuration for your project",
+  "keywords": [
+    "kinglint",
+    "linting",
+    "lint",
+    "configure lint",
+    "linter",
+    "JavaScript",
+    "TypeScript",
+    "ESLint",
+    "Prettier",
+    "Husky",
+    "commit prefix",
+    "commit-msg",
+    "lint-staged"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miguel-bermell/kinglint"
+  },
+  "author": "Miguel Bermell",
+  "license": "ISC",
   "main": "index.js",
   "bin": {
     "kinglint": "./src/index.js"
@@ -16,8 +37,6 @@
     "commander": "^9.4.1",
     "ora": "^6.1.2"
   },
-  "author": "Miguel Bermell",
-  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.20.5",
     "@babel/eslint-parser": "^7.19.1",
