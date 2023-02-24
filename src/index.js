@@ -20,8 +20,6 @@ loadOptions(program);
 
 program.parse(process.argv);
 
-const spinner = ora("Installing dependencies").start();
-
 const options = program.opts();
 
 const buildConfig = {};
@@ -53,6 +51,7 @@ if (!Object.keys(buildConfig).length) {
 }
 
 if (Object.keys(buildConfig).length) {
+	const spinner = ora("Installing dependencies").start();
 	const childProcess = exec(buildConfig.package.join(" "));
 
 	childProcess.on("exit", (code) => {
