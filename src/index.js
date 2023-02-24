@@ -4,7 +4,7 @@ import { program } from "commander";
 import { writeFile } from "fs";
 import ora from "ora";
 
-import pgkjson from "../package.json";
+import { version } from "../package.json";
 import { commitMsg } from "./files/commitMsg.js";
 import { editorConfig } from "./files/editorConfig.js";
 import { eslintJs } from "./files/javascript.js";
@@ -15,7 +15,6 @@ import { huskyScript } from "./scripts/husky.js";
 import { loadOptions } from "./utils/programOptions.js";
 import { writeFiles, writePkgJson } from "./utils/writeFiles.js";
 
-const { version } = JSON.parse(pgkjson);
 program.version(version, "-v, --version", "current version");
 loadOptions(program);
 
