@@ -1,6 +1,6 @@
 {
   "name": "kinglint",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "type": "module",
   "description": "Load all needed configuration for your project",
   "keywords": [
