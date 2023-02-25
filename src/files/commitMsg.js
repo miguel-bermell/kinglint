@@ -1,12 +1,12 @@
 export const commitMsg = `#!/usr/bin/env sh
-  . "$(dirname -- "$0")/_/husky.sh"
+. "$(dirname -- "$0")/_/husky.sh"
 
-  commit_message="$(cat "$1")"
+commit_message="$(cat "$1")"
 
-  prefixes="fix:|feat:|chore:|docs:|style:|refactor:|test:|wip:"
+prefixes="fix:|feat:|chore:|docs:|style:|refactor:|test:|wip:"
 
-  if ! echo "$commit_message" | grep -Eq "^($prefixes)[^:]"; then
-    echo "The commit message must have a change type prefix ($prefixes)"
-    exit 1
-  fi
+if ! echo "$commit_message" | grep -Eq "^($prefixes)[^:]"; then
+  echo "The commit message must have a change type prefix ($prefixes)"
+  exit 1
+fi
 `;

@@ -13,7 +13,7 @@ import { husky } from "./packages/husky.js";
 import { javascript } from "./packages/javascript.js";
 import { huskyScript } from "./scripts/husky.js";
 import { loadOptions } from "./utils/programOptions.js";
-import { writeFiles, writePkgJson } from "./utils/writeFiles.js";
+import { deletePkgJsonScript, writeFiles, writePkgJson } from "./utils/writeFiles.js";
 
 const kinglintDir = path.dirname(path.dirname(new URL(import.meta.url).pathname));
 const kinglintPkgJson = readFileSync(join(kinglintDir, "package.json"), "utf8");
@@ -44,7 +44,7 @@ const buildOptions = Object.freeze({
 				{ file: lintstaged, fileName: ".lintstagedrc" },
 				{ file: commitMsg, fileName: ".husky/commit-msg" },
 			],
-			{ file: "package.json", script: huskyScript }
+			{ file: "package.json", script: huskyScript, delete: true }
 		),
 });
 
@@ -60,6 +60,9 @@ if (Object.keys(buildConfig).length) {
 
 	childProcess.on("exit", (code) => {
 		writeFiles(buildConfig.files);
+		if (buildConfig?.options?.delete) {
+			deletePkgJsonScript(buildConfig.options);
+		}
 		code === 0
 			? spinner.succeed("Dependencies installed successfully")
 			: spinner.fail("Error installing dependencies");
