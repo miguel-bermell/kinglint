@@ -45,7 +45,7 @@ The following options are currently available:
   - feat: for new features
   - chore: for maintenance tasks (e.g. updating dependencies)
   - docs: for documentation changes
-    style: for changes that do not affect the meaning of the code (e.g. white-space, formatting, missing semi-colons, etc.)
+  - style: for changes that do not affect the meaning of the code (e.g. white-space, formatting, missing semi-colons, etc.)
   - refactor: for code refactoring
   - test: for adding or modifying tests
   - wip: for work in progress commits

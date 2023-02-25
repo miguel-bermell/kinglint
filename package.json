@@ -1,21 +1,25 @@
 {
   "name": "kinglint",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "type": "module",
   "description": "Load all needed configuration for your project",
   "keywords": [
     "kinglint",
     "linting",
     "lint",
-    "configure lint",
+    "linter",
+    "configure-lint",
     "linter",
     "JavaScript",
     "TypeScript",
     "ESLint",
     "Prettier",
     "Husky",
-    "commit prefix",
+    "commit-prefix",
     "commit-msg",
+    "commit",
+    "prefix",
+    "commit-message",
     "lint-staged"
   ],
   "repository": {
