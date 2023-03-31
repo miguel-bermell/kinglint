@@ -1,6 +1,6 @@
 {
   "name": "kinglint",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "type": "module",
   "description": "Load all needed configuration for your project",
   "keywords": [
@@ -20,7 +20,10 @@
     "commit",
     "prefix",
     "commit-message",
-    "lint-staged"
+    "lint-staged",
+    "nextjs",
+    "next-lint",
+    "nextlint"
   ],
   "repository": {
     "type": "git",
@@ -37,11 +40,11 @@
     "lint:fix": "eslint --fix"
   },
   "dependencies": {
-    "@types/node": "^18.11.9",
     "commander": "^9.4.1",
     "ora": "^6.1.2"
   },
   "devDependencies": {
+    "@types/node": "^18.11.9",
     "@babel/core": "^7.20.5",
     "@babel/eslint-parser": "^7.19.1",
     "eslint": "^8.28.0",

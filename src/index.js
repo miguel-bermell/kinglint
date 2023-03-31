@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { exec } from "child_process";
 import { program } from "commander";
-import { readFileSync, writeFile } from "fs";
+import { readFileSync } from "fs";
 import ora from "ora";
 import path, { join } from "path";
 
@@ -9,8 +9,11 @@ import { commitMsg } from "./files/commitMsg.js";
 import { editorConfig } from "./files/editorConfig.js";
 import { eslintJs } from "./files/javascript.js";
 import { lintstaged } from "./files/lintstaged.js";
+import { eslintNextjs } from "./files/nextjs.js";
+import { prettier } from "./files/prettier.js";
 import { husky } from "./packages/husky.js";
 import { javascript } from "./packages/javascript.js";
+import { nextjs } from "./packages/nextjs.js";
 import { huskyScript } from "./scripts/husky.js";
 import { loadOptions } from "./utils/programOptions.js";
 import { deletePkgJsonScript, writeFiles, writePkgJson } from "./utils/writeFiles.js";
@@ -36,7 +39,17 @@ const setOptions = (pckg, files, options = {}) => {
 };
 
 const buildOptions = Object.freeze({
-	javascript: () => setOptions(javascript, { file: eslintJs, fileName: ".eslintrc.cjs" }),
+	javascript: () =>
+		setOptions(javascript, [
+			{ file: eslintJs, fileName: ".eslintrc.cjs" },
+			{ file: editorConfig, fileName: ".editorconfig" },
+		]),
+	nextjs: () =>
+		setOptions(nextjs, [
+			{ file: eslintNextjs, fileName: ".eslintrc.cjs" },
+			{ file: editorConfig, fileName: ".editorconfig" },
+			{ file: prettier, fileName: ".prettierrc" },
+		]),
 	husky: () =>
 		setOptions(
 			husky,
@@ -71,10 +84,4 @@ if (Object.keys(buildConfig).length) {
 	if (Object.keys(buildConfig.options).length) {
 		writePkgJson(buildConfig.options);
 	}
-
-	writeFile(".editorconfig", editorConfig, (err) => {
-		if (err) {
-			console.error(`Error: ${err}`);
-		}
-	});
 }

@@ -1,15 +1,20 @@
-module.exports = {
+export const eslintNextjs = `module.exports = {
 	env: {
-		browser: true,
-		es2021: true,
-		node: true,
+		es6: true,
 	},
-	parser: "@babel/eslint-parser",
-	parserOptions: {
-		requireConfigFile: false,
+	extends: ["next", "next/core-web-vitals", "eslint:recommended", "plugin:prettier/recommended"],
+	plugins: ["simple-import-sort", "import", "unused-imports", "prettier"],
+	settings: {
+		"import/resolver": {
+			alias: {
+				map: [["@", "./src"]],
+				extensions: [".js", ".jsx"],
+			},
+			node: {
+				extensions: [".js", ".jsx"],
+			},
+		},
 	},
-	extends: ["eslint:recommended", "plugin:prettier/recommended"],
-	plugins: ["simple-import-sort", "import", "unused-imports"],
 	rules: {
 		//error prevention
 		"array-callback-return": ["error", { checkForEach: true }],
@@ -22,6 +27,7 @@ module.exports = {
 		"no-unmodified-loop-condition": "error",
 		"no-unreachable-loop": "error",
 		"no-unused-private-class-members": "error",
+
 		"no-use-before-define": [
 			"error",
 			{
@@ -33,7 +39,7 @@ module.exports = {
 		],
 		"require-atomic-updates": "error",
 
-		// good practices
+		// good practises
 		camelcase: ["error", { properties: "never" }],
 		eqeqeq: "error",
 		"new-cap": ["error", { capIsNew: false }],
@@ -68,7 +74,6 @@ module.exports = {
 		"import/no-duplicates": "error",
 		"import/no-unresolved": "error",
 		"import/no-webpack-loader-syntax": "error",
-		"prettier/prettier": ["error", { printWidth: 100, useTabs: true }],
 		"simple-import-sort/exports": "error",
 		"simple-import-sort/imports": "error",
 		"unused-imports/no-unused-imports": "error",
@@ -84,3 +89,4 @@ module.exports = {
 		],
 	},
 };
+`;

@@ -3,6 +3,10 @@ const fileOptions = {
 		flag: "-JS, --javascript",
 		description: "ESLint & Prettier Config",
 	},
+	nextjs: {
+		flag: "-NXJS, --nextjs",
+		description: "ESLint & Prettier Config nextjs",
+	},
 	husky: {
 		flag: "-HK, --husky",
 		description: "Husky, commit-msg & lint-staged Config",

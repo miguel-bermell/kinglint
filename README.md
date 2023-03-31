@@ -28,12 +28,18 @@ The following options are currently available:
 
 **-JS** or **--javascript**: Installs and configures ESLint and Prettier for JavaScript projects.
 
+**-NXJS** or **--nextjs**: Installs and configures ESLint and Prettier with Next.js specific rules.
+
 **-HK** or **--husky**: Installs and configures Husky, commit-msg and lint-staged.
 
 ## What's installed with each option
 
 **-JS** or **--javascript**
 - ESLint: JavaScript linter
+- Prettier: Code formatter
+
+**-NXJS** or **--nextjs**
+- ESLint: JavaScript linter with Next.js specific rules
 - Prettier: Code formatter
 
 **-HK** or **--husky**
@@ -49,6 +55,17 @@ The following options are currently available:
   - refactor: for code refactoring
   - test: for adding or modifying tests
   - wip: for work in progress commits
+
+### Using `kinglint` Locally
+
+You can also use `kinglint` locally by linking the package to your project with the following steps:
+
+1. Clone the `kinglint` repository from GitHub
+2. Navigate to the `kinglint` directory and install the package's dependencies
+3. Create global link: **npm link**
+4. Link the package to your project: **npm link kinglint**
+5. Now you can use `kinglint` in your project running some option **in the root of your project**: example: **kinglint -JS**
+
 
 ## Contributing
 
